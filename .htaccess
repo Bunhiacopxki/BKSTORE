@@ -1,0 +1,199 @@
+RewriteEngine On
+Options -Indexes
+
+RewriteRule ^test$ /app/views/client/test.php [L]
+
+#CLIENT ROUTERS FRONTEND
+RewriteRule ^$ /app/views/public/home.php [L]
+RewriteRule ^product$ /app/views/public/product.php [L]
+RewriteRule ^contact$ /app/views/public/contact.php [L]
+RewriteRule ^category$ /app/views/public/category.php [L]
+
+#USER ROUTERS FRONTEND
+RewriteRule ^cart$ /app/views/client/cart.php [L]
+RewriteRule ^checkout/preview$ /app/views/client/payment_info.php [L]
+RewriteRule ^checkout/payment$ /app/views/client/payment.php [L]
+RewriteRule ^notice$ /app/views/client/notice.php [L]
+RewriteRule ^order/success$ /app/views/client/success_order.php [L]
+RewriteRule ^order/failure$ /app/views/client/failure_order.php [L]
+
+
+#ADMIN ROUTERS FRONTEND
+RewriteRule ^admin$ /app/views/admin/home.php [L]
+RewriteRule ^admin/user$ /app/views/admin/user.php [L]
+RewriteRule ^admin/product$ /app/views/admin/product.php [L]
+RewriteRule ^admin/order$ /app/views/admin/order.php [L]
+RewriteRule ^admin/request$ /app/views/admin/request.php [L]
+RewriteRule ^admin/promotion$ /app/views/admin/promotion.php [L]
+RewriteRule ^admin/review$ /app/views/admin/review.php [L]
+RewriteRule ^admin/comment$ /app/views/admin/comment.php [L]
+RewriteRule ^admin/banner$ /app/views/admin/banner.php [L]
+RewriteRule ^admin/news$ /app/views/admin/news.php [L]
+RewriteRule ^admin/contact$ /app/views/admin/contact.php [L]
+RewriteRule ^admin/setting$ /app/views/admin/setting.php [L]
+RewriteRule ^admin/social$ /app/views/admin/social.php [L]
+RewriteRule ^admin/partner$ /app/views/admin/partner.php [L]
+
+#AUTH ROUTERS FRONTEND
+RewriteRule ^auth/login$ /app/views/auth/login.php [L]
+RewriteRule ^auth/register$ /app/views/auth/register.php [L]
+RewriteRule ^auth/forgot_password$ /app/views/auth/lost-password.php [L]
+
+#PROFILE ROUTERS FRONTEND
+RewriteRule ^my/account$ /app/views/client/profile/my-account.php [L]
+RewriteRule ^my/order$ /app/views/client/profile/order-history.php [L]
+RewriteRule ^my/order/detail$ /app/views/client/profile/order.php [L]
+RewriteRule ^my/profile$ /app/views/client/profile/profile.php [L]
+RewriteRule ^my/support$ /app/views/client/profile/support.php [L]
+
+#PUBLIC ROUTERS FRONTEND
+RewriteRule ^introduction$ /app/views/public/introduction.php [L]
+RewriteRule ^news$ /app/views/public/news.php [L]
+RewriteRule ^news/detail$ /app/views/public/news_detail.php [L]
+RewriteRule ^promotion$ /app/views/public/promotion.php [L]
+RewriteRule ^comment$ /app/views/public/comment.php [L]
+RewriteRule ^like$ /app/views/public/product_like.php [L]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#CLIENT ROUTERS BACKEND
+RewriteRule ^api/auth/register$ /app/controllers/auth/signup.php [L]
+RewriteRule ^api/auth/login$ /app/controllers/auth/login.php [L]
+RewriteRule ^api/auth/forgot$ /app/controllers/auth/forgot.php [L]
+RewriteRule ^api/auth/change$ /app/controllers/auth/change.php [L]
+RewriteRule ^api/auth/logout$ /app/controllers/auth/logout.php [L]
+RewriteRule ^api/test$ /app/models/test.php [L]
+RewriteRule ^api/system/inforList$ /app/controllers/system/inforList.php [L]
+RewriteRule ^api/product/productType$ /app/controllers/product/productType.php [L]
+
+#USER ROUTERS BACKEND
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/user/info$ /app/controllers/user/info.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/user/info$ /app/controllers/user/updateInfo.php [L]
+RewriteRule ^api/user$ /app/controllers/user/home.php [L]
+RewriteRule ^api/user/avatar$ /app/controllers/user/avatar.php [L]
+RewriteRule ^api/user/review$ /app/controllers/user/review.php [L]
+RewriteRule ^api/user/comment$ /app/controllers/user/comment.php [L]
+RewriteRule ^api/user/like$ /app/controllers/user/like.php [L]
+RewriteRule ^api/user/unlike$ /app/controllers/user/unlike.php [L]
+RewriteRule ^api/user/notice$ /app/controllers/user/notice.php [L]
+
+#CART ROUTERS BACKEND
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/user/cart$ /app/controllers/cart/get.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/user/cart$ /app/controllers/cart/set.php [L]
+RewriteRule ^api/cart/delete$ /app/controllers/cart/delete.php [L]
+RewriteRule ^api/cart/update$ /app/controllers/cart/update.php [L]
+
+#ORDER ROUTERS BACKEND
+RewriteRule ^api/order/sale$ /app/controllers/order/sale.php [L]
+RewriteRule ^api/order/paid$ /app/controllers/order/getpaid.php [L]
+RewriteRule ^api/order/info$ /app/controllers/order/info.php [L]
+RewriteRule ^api/order/order$ /app/controllers/order/order.php [L]
+RewriteRule ^api/order/update$ /app/controllers/order/update.php [L]
+RewriteRule ^api/order/list$ /app/controllers/order/list.php [L]
+RewriteRule ^api/order/profile$ /app/controllers/order/profile.php [L]
+
+#SYSTEM ROUTERS BACKEND
+RewriteRule ^api/system/contact$ /app/controllers/system/contactInfo.php [L]
+RewriteRule ^api/system/new$ /app/controllers/system/new.php [L]
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/system$ /app/controllers/system/get.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/system$ /app/controllers/system/set.php [L]
+RewriteRule ^api/system/statistical$ /app/controllers/system/statistical.php [L]
+
+#ADMIN ROUTERS BACKEND
+RewriteRule ^api/admin/user$ /app/controllers/admin/userInfo.php [L]
+RewriteRule ^api/admin/ban$ /app/controllers/admin/banUser.php [L]
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/admin/product$ /app/controllers/admin/product.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/admin/product$ /app/controllers/admin/addProduct.php [L]
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/admin/propose$ /app/controllers/admin/propose.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/admin/propose$ /app/controllers/admin/updatePropose.php [L]
+RewriteRule ^api/admin/comment/status$ /app/controllers/admin/statusComment.php [L]
+RewriteRule ^api/admin/comment/rep$ /app/controllers/admin/repComment.php [L]
+RewriteRule ^api/admin/review/status$ /app/controllers/admin/statusReview.php [L]
+RewriteRule ^api/admin/review/rep$ /app/controllers/admin/repReview.php [L]
+RewriteRule ^api/admin/updateProduct$ /app/controllers/admin/updateProduct.php [L]
+RewriteRule ^api/admin/updateUser$ /app/controllers/admin/updateUser.php [L]
+RewriteRule ^api/admin/deleteProduct$ /app/controllers/admin/deleteProduct.php [L]
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/admin/sale$ /app/controllers/admin/getSale.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/admin/sale$ /app/controllers/admin/setSale.php [L]
+RewriteRule ^api/admin/updateSale$ /app/controllers/admin/updateSale.php [L]
+
+#PRODUCT ROUTERS BACKEND
+RewriteRule ^api/product/info$ /app/controllers/product/info.php [L]
+RewriteRule ^api/product/propose$ /app/controllers/product/propose.php [L]
+RewriteRule ^api/product/like$ /app/controllers/product/like.php [L]
+RewriteRule ^api/product/keyword$ /app/controllers/product/keyword.php [L]
+
+#NEWS ROUTERS BACKEND
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/news$ /app/controllers/news/get.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/news$ /app/controllers/news/set.php [L]
+RewriteRule ^api/news/update$ /app/controllers/news/update.php [L]
+RewriteRule ^api/news/delete$ /app/controllers/news/delete.php [L]
+
+#BANNER ROUTERS BACKEND
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/banner$ /app/controllers/banner/get.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/banner$ /app/controllers/banner/set.php [L]
+RewriteRule ^api/banner/update$ /app/controllers/banner/update.php [L]
+RewriteRule ^api/banner/delete$ /app/controllers/banner/delete.php [L]
+
+#CONTACT ROUTERS BACKEND
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/contact$ /app/controllers/contact/get.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/contact$ /app/controllers/contact/set.php [L]
+RewriteRule ^api/contact/update$ /app/controllers/contact/update.php [L]
+RewriteRule ^api/contact/delete$ /app/controllers/contact/delete.php [L]
+
+#SOCIAL ROUTERS BACKEND
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/social$ /app/controllers/social/get.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/social$ /app/controllers/social/set.php [L]
+RewriteRule ^api/social/update$ /app/controllers/social/update.php [L]
+RewriteRule ^api/social/delete$ /app/controllers/social/delete.php [L]
+
+#PARTNER ROUTERS BACKEND
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/partner$ /app/controllers/partner/get.php [L]
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/partner$ /app/controllers/partner/set.php [L]
+RewriteRule ^api/partner/update$ /app/controllers/partner/update.php [L]
+RewriteRule ^api/partner/delete$ /app/controllers/partner/delete.php [L]
+
+#PAYOS
+RewriteRule ^api/payment/create$ /app/controllers/payment/create.php [L]
+RewriteRule ^api/payment/check$ /app/controllers/payment/check.php [L]
+
+#CUSTOM 404 ERROR PAGE
+ErrorDocument 404 /app/views/public/404.php
+
+# Ensure directories without index.php return a 404 error
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.php !-f
+RewriteRule ^.*$ /app/views/public/404.php [L]
